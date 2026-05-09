@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Driven Public Health Chatbot for Disease Awareness</title>
+  <meta name="description" content="A multilingual AI public health chatbot concept for disease awareness, preventive care, vaccination reminders, and outbreak alerts.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="AI HealthBot home">
+      <span class="brand-mark">+</span>
+      <span>
+        <strong>AI HealthBot</strong>
+        <small>Disease Awareness Network</small>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="ai.html">AI Agent</a>
+      <a href="#solution">Solution</a>
+      <a href="#features">Features</a>
+      <a href="#technology">Technology</a>
+      <a href="#impact">Impact</a>
+    </nav>
+    <a class="header-action" href="#chatbot">Open Chat</a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-backdrop" aria-hidden="true"></div>
+      <div class="hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">For rural and semi-urban health awareness</p>
+          <h1 id="hero-title">AI-Driven Public Health Chatbot</h1>
+          <p class="hero-lede">
+            A multilingual assistant that answers preventive healthcare questions, explains symptoms, shares vaccination schedules, and sends outbreak alerts through WhatsApp and SMS.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="#chatbot">Try the chatbot</a>
+            <a class="button secondary" href="#technology">View architecture</a>
+          </div>
+          <div class="hero-metrics" aria-label="Project targets">
+            <span><strong>80%</strong> answer accuracy target</span>
+            <span><strong>20%</strong> awareness increase goal</span>
+            <span><strong>24/7</strong> community access</span>
+          </div>
+        </div>
+
+        <section class="chat-panel" id="chatbot" aria-labelledby="chatbot-title">
+          <div class="chat-topbar">
+            <div>
+              <p class="panel-kicker">Live prototype</p>
+              <h2 id="chatbot-title">Swasthya AI Assistant</h2>
+            </div>
+            <span class="status-pill">Online</span>
+          </div>
+
+          <div class="access-row" aria-label="Access channels">
+            <span>WhatsApp</span>
+            <span>SMS</span>
+            <span>Voice-ready</span>
+          </div>
+
+          <label class="language-label" for="languageSelect">Language</label>
+          <select id="languageSelect" class="language-select">
+            <option value="en">English</option>
+            <option value="hi">Hindi Roman</option>
+            <option value="bn">Bangla Roman</option>
+            <option value="te">Telugu Roman</option>
+          </select>
+
+          <div class="quick-prompts" aria-label="Quick health topics">
+            <button type="button" data-intent="symptoms">Symptoms</button>
+            <button type="button" data-intent="vaccine">Vaccines</button>
+            <button type="button" data-intent="outbreak">Alerts</button>
+            <button type="button" data-intent="prevention">Prevention</button>
+          </div>
+
+          <div class="chat-window" id="chatWindow" aria-live="polite"></div>
+
+          <form class="chat-form" id="chatForm">
+            <input id="chatInput" name="message" type="text" autocomplete="off" placeholder="Ask about fever, vaccines, dengue, diarrhea..." aria-label="Health question">
+            <button type="submit">Send</button>
+          </form>
+          <p class="medical-note">Educational guidance only. For danger signs, contact a health professional or emergency service.</p>
+        </section>
+      </div>
+    </section>
+
+    <section class="alert-band" aria-label="Public health alert examples">
+      <div class="section-inner alert-inner">
+        <strong>Realtime alert feed</strong>
+        <p id="alertTicker">Dengue prevention reminder: remove standing water and use mosquito protection.</p>
+      </div>
+    </section>
+
+    <section class="section problem-section" id="solution" aria-labelledby="solution-title">
+      <div class="section-inner split-layout">
+        <div>
+          <p class="eyebrow">Problem analysis</p>
+          <h2 id="solution-title">Healthcare information must reach people before illness becomes severe.</h2>
+        </div>
+        <div class="analysis-grid">
+          <article>
+            <span class="analysis-index">01</span>
+            <h3>Access gap</h3>
+            <p>Rural and semi-urban communities may have limited nearby doctors, long travel time, and low access to reliable health information.</p>
+          </article>
+          <article>
+            <span class="analysis-index">02</span>
+            <h3>Language gap</h3>
+            <p>People need answers in familiar local language, with simple words and clear next steps instead of complex medical terms.</p>
+          </article>
+          <article>
+            <span class="analysis-index">03</span>
+            <h3>Speed gap</h3>
+            <p>Outbreak warnings, vaccine reminders, and prevention advice lose value when they arrive late or through channels people do not use.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section workflow-section" aria-labelledby="workflow-title">
+      <div class="section-inner">
+        <p class="eyebrow">How it works</p>
+        <h2 id="workflow-title">From a simple message to trusted public health guidance.</h2>
+        <div class="workflow">
+          <article>
+            <span>1</span>
+            <h3>Citizen asks</h3>
+            <p>Users send questions through WhatsApp, SMS, or a web chat interface in their preferred language.</p>
+          </article>
+          <article>
+            <span>2</span>
+            <h3>NLP understands</h3>
+            <p>Rasa or Dialogflow detects intent, symptoms, age group, location, and urgency level from natural language.</p>
+          </article>
+          <article>
+            <span>3</span>
+            <h3>Health data syncs</h3>
+            <p>The backend checks approved health content, vaccination rules, local facilities, and outbreak alert feeds.</p>
+          </article>
+          <article>
+            <span>4</span>
+            <h3>Action is sent</h3>
+            <p>The chatbot replies with prevention steps, schedule reminders, and escalation advice when danger signs appear.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section features-section" id="features" aria-labelledby="features-title">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Core features</p>
+          <h2 id="features-title">Built for public health teams and everyday citizens.</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon">AI</div>
+            <h3>Symptom awareness</h3>
+            <p>Explains common symptoms, danger signs, home-care precautions, and when to visit a health center.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">VX</div>
+            <h3>Vaccination schedules</h3>
+            <p>Shares age-based vaccine reminders and can connect to official schedule data through secure APIs.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">AL</div>
+            <h3>Outbreak alerts</h3>
+            <p>Sends location-aware messages for outbreaks such as dengue, flu, water-borne illness, or heat-related risk.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">LG</div>
+            <h3>Multilingual support</h3>
+            <p>Delivers health education in local languages with short, low-literacy-friendly responses.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">WA</div>
+            <h3>WhatsApp and SMS reach</h3>
+            <p>Works on familiar channels, including basic phones through SMS for low-connectivity communities.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">DB</div>
+            <h3>Government database integration</h3>
+            <p>Uses an API layer to connect approved public health content, facility directories, and alert dashboards.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section technology-section" id="technology" aria-labelledby="technology-title">
+      <div class="section-inner tech-layout">
+        <div>
+          <p class="eyebrow">Technical feasibility</p>
+          <h2 id="technology-title">Cloud-ready architecture for scale, safety, and measurable accuracy.</h2>
+          <p class="section-copy">
+            The system can be built as a modular service: NLP handles intent detection, a verified knowledge layer controls medical content, and messaging APIs distribute responses through web, WhatsApp, and SMS.
+          </p>
+        </div>
+        <div class="stack-board" aria-label="Suggested technology stack">
+          <article>
+            <h3>NLP layer</h3>
+            <p>Rasa, Dialogflow, multilingual intent models, entity extraction, confidence scoring.</p>
+          </article>
+          <article>
+            <h3>Integration layer</h3>
+            <p>Government health APIs, FHIR-ready records, facility lookup, outbreak alert feeds.</p>
+          </article>
+          <article>
+            <h3>Delivery layer</h3>
+            <p>WhatsApp Business API, SMS gateway, responsive web app, low-bandwidth message design.</p>
+          </article>
+          <article>
+            <h3>Cloud layer</h3>
+            <p>Container deployment, autoscaling, analytics dashboard, audit logs, content approval workflow.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dashboard-section" id="impact" aria-labelledby="impact-title">
+      <div class="section-inner dashboard-layout">
+        <div class="impact-copy">
+          <p class="eyebrow">Expected outcome</p>
+          <h2 id="impact-title">Designed to improve awareness, not replace doctors.</h2>
+          <p>
+            Success is measured by answer accuracy, community engagement, repeat usage, vaccine reminder completion, and awareness survey improvement across target communities.
+          </p>
+        </div>
+        <div class="impact-dashboard" aria-label="Impact indicators">
+          <article>
+            <span class="metric" data-target="80">0</span>
+            <small>% target accuracy for health queries</small>
+          </article>
+          <article>
+            <span class="metric" data-target="20">0</span>
+            <small>% awareness increase in target communities</small>
+          </article>
+          <article>
+            <span class="metric" data-target="4">0</span>
+            <small>supported languages in this prototype</small>
+          </article>
+          <article>
+            <span class="metric" data-target="2">0</span>
+            <small>primary channels: WhatsApp and SMS</small>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section roadmap-section" aria-labelledby="roadmap-title">
+      <div class="section-inner">
+        <p class="eyebrow">Build roadmap</p>
+        <h2 id="roadmap-title">A practical path from prototype to field deployment.</h2>
+        <div class="roadmap">
+          <article>
+            <h3>Phase 1: Prototype</h3>
+            <p>Build multilingual intents, safe answer templates, web chat UI, and basic analytics.</p>
+          </article>
+          <article>
+            <h3>Phase 2: Validation</h3>
+            <p>Test with health workers, tune accuracy, review content with medical experts, and add escalation rules.</p>
+          </article>
+          <article>
+            <h3>Phase 3: Integration</h3>
+            <p>Connect official health databases, vaccination schedules, facility directories, and alert feeds.</p>
+          </article>
+          <article>
+            <h3>Phase 4: Scale</h3>
+            <p>Deploy on cloud infrastructure, launch WhatsApp/SMS access, monitor outcomes, and improve language coverage.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="section-inner footer-inner">
+      <p>AI-Driven Public Health Chatbot for Disease Awareness</p>
+      <a href="#top">Back to top</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

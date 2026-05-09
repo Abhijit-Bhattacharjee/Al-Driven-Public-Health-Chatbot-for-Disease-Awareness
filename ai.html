@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Patient Agent | AI HealthBot</title>
+  <meta name="description" content="Interactive AI patient agent prototype for symptom awareness, triage guidance, and doctor matching.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="brand" href="index.html" aria-label="AI HealthBot home">
+      <span class="brand-mark">+</span>
+      <span>
+        <strong>AI HealthBot</strong>
+        <small>Disease Awareness Network</small>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a class="active" href="ai.html">AI Agent</a>
+      <a href="#body-map">Body Map</a>
+      <a href="index.html#solution">Solution</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#technology">Technology</a>
+      <a href="index.html#impact">Impact</a>
+    </nav>
+    <a class="header-action" href="index.html">Home</a>
+  </header>
+
+  <main>
+    <section class="agent-hero" aria-labelledby="agent-title">
+      <div class="agent-hero-overlay" aria-hidden="true"></div>
+      <div class="section-inner agent-hero-grid">
+        <div class="agent-intro">
+          <p class="eyebrow">AI patient support prototype</p>
+          <h1 id="agent-title">Detect symptoms, estimate risk, and guide patients to the right care.</h1>
+          <p>
+            This page demonstrates how the chatbot can collect patient symptoms, identify likely health categories, show safety advice, and suggest the most relevant doctor type or nearby health contact.
+          </p>
+          <div class="agent-safe-strip">
+            <strong>Safety rule</strong>
+            <span>This tool gives health education and triage guidance. It does not confirm a diagnosis or replace a clinician.</span>
+          </div>
+        </div>
+
+        <section class="agent-card" aria-labelledby="agent-chat-title">
+          <div class="agent-card-head">
+            <div>
+              <p class="panel-kicker">Agent console</p>
+              <h2 id="agent-chat-title">Patient Symptom AI</h2>
+            </div>
+            <span class="status-pill">Local AI demo</span>
+          </div>
+
+          <div class="patient-grid" aria-label="Patient details">
+            <label>
+              Patient name
+              <input id="patientName" type="text" placeholder="Enter patient name">
+            </label>
+            <label>
+              Patient contact number
+              <input id="patientPhone" type="tel" placeholder="Example: 98765 43210">
+            </label>
+            <label>
+              Age
+              <input id="patientAge" type="number" min="0" max="120" placeholder="Example: 22">
+            </label>
+            <label>
+              Calculated age group
+              <input id="ageGroup" type="text" placeholder="Calculated automatically" readonly>
+            </label>
+            <label>
+              Symptom duration
+              <input id="symptomDuration" type="text" placeholder="Example: 3 days">
+            </label>
+            <label>
+              Location
+              <input id="patientLocation" type="text" placeholder="Village, town, or district">
+            </label>
+          </div>
+
+          <div class="symptom-bank" aria-label="Common symptom buttons">
+            <button type="button" data-symptom="fever">Fever</button>
+            <button type="button" data-symptom="cough">Cough</button>
+            <button type="button" data-symptom="rash">Rash</button>
+            <button type="button" data-symptom="diarrhea">Diarrhea</button>
+            <button type="button" data-symptom="vomiting">Vomiting</button>
+            <button type="button" data-symptom="body pain">Body pain</button>
+            <button type="button" data-symptom="breathing trouble">Breathing trouble</button>
+            <button type="button" data-symptom="mosquito bite">Mosquito bite</button>
+            <button type="button" data-symptom="dehydration">Dehydration</button>
+            <button type="button" data-symptom="headache">Headache</button>
+          </div>
+
+          <form class="agent-form" id="agentForm">
+            <label for="symptomInput">Describe symptoms</label>
+            <textarea id="symptomInput" rows="4" placeholder="Example: fever for 3 days, headache, body pain, rash, vomiting..."></textarea>
+            <div class="agent-actions">
+              <button class="button primary" type="submit">Analyze symptoms</button>
+              <button class="button ghost" id="resetAgent" type="button">Reset</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </section>
+
+    <section class="section body-map-section" id="body-map" aria-labelledby="body-map-title">
+      <div class="section-inner body-map-layout">
+        <div class="body-map-copy">
+          <p class="eyebrow">Symptom body map</p>
+          <h2 id="body-map-title">2D body demonstration for symptom selection.</h2>
+          <p>
+            Switch between front, back, and side views. Tap any body part label to add it into the symptom description for the AI patient agent.
+          </p>
+        </div>
+
+        <div class="body-map-card body-map-card-svg">
+          <div class="body-map-tabs" role="tablist" aria-label="Human body view">
+            <button class="active" type="button" role="tab" aria-selected="true" data-body-view="front">Front</button>
+            <button type="button" role="tab" aria-selected="false" data-body-view="back">Back</button>
+            <button type="button" role="tab" aria-selected="false" data-body-view="side">Side</button>
+          </div>
+          <p class="body-picture-note">Using 2D SVG body callout pictures with names and arrow pointers.</p>
+
+          <div class="body-view active" data-body-panel="front" role="tabpanel">
+            <div class="body-diagram">
+              <img class="body-picture" src="assets/anatomy-front.svg" alt="2D front view body parts diagram">
+              <svg viewBox="0 0 320 700" aria-label="Front 3D-style human body diagram">
+                <defs>
+                  <linearGradient id="frontSkin" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ffd9c0"></stop>
+                    <stop offset="48%" stop-color="#f2ad86"></stop>
+                    <stop offset="100%" stop-color="#c77b5f"></stop>
+                  </linearGradient>
+                  <radialGradient id="frontHighlight" cx="38%" cy="25%" r="70%">
+                    <stop offset="0%" stop-color="#fff0e4" stop-opacity="0.95"></stop>
+                    <stop offset="58%" stop-color="#f5b994" stop-opacity="0.88"></stop>
+                    <stop offset="100%" stop-color="#b86a52" stop-opacity="0.92"></stop>
+                  </radialGradient>
+                  <filter id="frontShadow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#5d3a2f" flood-opacity="0.26"></feDropShadow>
+                  </filter>
+                </defs>
+                <ellipse class="body-floor" cx="160" cy="665" rx="95" ry="20"></ellipse>
+                <g filter="url(#frontShadow)">
+                  <path class="skin limb" fill="url(#frontSkin)" d="M99 194 C72 228 58 304 60 386 C60 416 78 430 96 416 C108 406 109 384 108 362 C106 303 116 248 133 209 Z"></path>
+                  <path class="skin limb" fill="url(#frontSkin)" d="M221 194 C248 228 262 304 260 386 C260 416 242 430 224 416 C212 406 211 384 212 362 C214 303 204 248 187 209 Z"></path>
+                  <ellipse class="skin" fill="url(#frontSkin)" cx="86" cy="424" rx="19" ry="25"></ellipse>
+                  <ellipse class="skin" fill="url(#frontSkin)" cx="234" cy="424" rx="19" ry="25"></ellipse>
+                  <path class="skin" fill="url(#frontHighlight)" d="M105 171 C121 142 199 142 215 171 C234 222 231 326 213 434 C202 493 191 555 187 623 C182 650 148 650 143 623 L136 458 L128 623 C123 650 89 650 84 623 C80 555 69 493 58 434 C40 326 36 222 55 171 C78 190 101 198 130 201 L160 202 L190 201 C219 198 242 190 265 171 Z"></path>
+                  <path class="skin pelvis" fill="url(#frontSkin)" d="M105 410 C126 438 194 438 215 410 C209 460 190 482 160 482 C130 482 111 460 105 410 Z"></path>
+                  <path class="skin" fill="url(#frontSkin)" d="M132 116 H188 L196 170 C181 181 139 181 124 170 Z"></path>
+                  <ellipse class="skin" fill="url(#frontHighlight)" cx="160" cy="70" rx="47" ry="55"></ellipse>
+                  <ellipse class="skin" fill="url(#frontSkin)" cx="111" cy="72" rx="9" ry="16"></ellipse>
+                  <ellipse class="skin" fill="url(#frontSkin)" cx="209" cy="72" rx="9" ry="16"></ellipse>
+                  <path class="line-art" d="M129 198 C139 220 181 220 191 198 M116 292 C139 309 181 309 204 292 M134 174 C144 187 176 187 186 174 M143 458 L139 620 M177 458 L181 620"></path>
+                  <path class="line-art face" d="M140 62 H141 M179 62 H180 M151 90 Q160 97 170 90"></path>
+                </g>
+              </svg>
+              <button class="body-label" style="--x: 58%; --y: 6%;" data-body-part="hair pain">Hair</button>
+              <button class="body-label" style="--x: 50%; --y: 3%;" data-body-part="head pain">Head</button>
+              <button class="body-label" style="--x: 50%; --y: 11%;" data-body-part="forehead pain">Forehead</button>
+              <button class="body-label" style="--x: 56%; --y: 13%;" data-body-part="eye pain">Eye</button>
+              <button class="body-label" style="--x: 62%; --y: 15%;" data-body-part="ear pain">Ear</button>
+              <button class="body-label" style="--x: 51%; --y: 16%;" data-body-part="nose problem">Nose</button>
+              <button class="body-label" style="--x: 55%; --y: 17%;" data-body-part="cheek pain">Cheek</button>
+              <button class="body-label" style="--x: 51%; --y: 19%;" data-body-part="mouth or throat pain">Mouth</button>
+              <button class="body-label" style="--x: 51%; --y: 21%;" data-body-part="chin pain">Chin</button>
+              <button class="body-label" style="--x: 50%; --y: 23%;" data-body-part="neck pain">Neck</button>
+              <button class="body-label" style="--x: 18%; --y: 28%;" data-body-part="shoulder pain">Shoulder</button>
+              <button class="body-label" style="--x: 79%; --y: 34%;" data-body-part="chest pain">Chest</button>
+              <button class="body-label" style="--x: 22%; --y: 45%;" data-body-part="stomach pain">Abdomen</button>
+              <button class="body-label" style="--x: 24%; --y: 53%;" data-body-part="hip pain">Hip</button>
+              <button class="body-label" style="--x: 78%; --y: 55%;" data-body-part="pelvic pain">Pelvis</button>
+              <button class="body-label" style="--x: 25%; --y: 56%;" data-body-part="groin pain">Groin</button>
+              <button class="body-label" style="--x: 14%; --y: 41%;" data-body-part="arm pain">Arm</button>
+              <button class="body-label" style="--x: 76%; --y: 39%;" data-body-part="elbow pain">Elbow</button>
+              <button class="body-label" style="--x: 77%; --y: 44%;" data-body-part="forearm pain">Forearm</button>
+              <button class="body-label" style="--x: 76%; --y: 50%;" data-body-part="wrist pain">Wrist</button>
+              <button class="body-label" style="--x: 14%; --y: 57%;" data-body-part="hand pain">Hand</button>
+              <button class="body-label" style="--x: 76%; --y: 56%;" data-body-part="thumb pain">Thumb</button>
+              <button class="body-label" style="--x: 77%; --y: 60%;" data-body-part="finger pain">Fingers</button>
+              <button class="body-label" style="--x: 24%; --y: 73%;" data-body-part="thigh pain">Thigh</button>
+              <button class="body-label" style="--x: 77%; --y: 81%;" data-body-part="knee pain">Knee</button>
+              <button class="body-label" style="--x: 65%; --y: 79%;" data-body-part="shin pain">Shin</button>
+              <button class="body-label" style="--x: 25%; --y: 91%;" data-body-part="leg pain">Leg</button>
+              <button class="body-label" style="--x: 66%; --y: 88%;" data-body-part="ankle pain">Ankle</button>
+              <button class="body-label" style="--x: 75%; --y: 97%;" data-body-part="foot pain">Foot</button>
+              <button class="body-label" style="--x: 66%; --y: 96%;" data-body-part="toe pain">Toes</button>
+            </div>
+          </div>
+
+          <div class="body-view" data-body-panel="back" role="tabpanel" hidden>
+            <div class="body-diagram">
+              <img class="body-picture" src="assets/anatomy-back.svg" alt="2D back view body parts diagram">
+              <svg viewBox="0 0 320 700" aria-label="Back 3D-style human body diagram">
+                <defs>
+                  <linearGradient id="backSkin" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ffd9c0"></stop>
+                    <stop offset="48%" stop-color="#efaa84"></stop>
+                    <stop offset="100%" stop-color="#b86a52"></stop>
+                  </linearGradient>
+                  <radialGradient id="backHighlight" cx="44%" cy="18%" r="74%">
+                    <stop offset="0%" stop-color="#fff0e4" stop-opacity="0.9"></stop>
+                    <stop offset="60%" stop-color="#f0ad88" stop-opacity="0.88"></stop>
+                    <stop offset="100%" stop-color="#aa604b" stop-opacity="0.92"></stop>
+                  </radialGradient>
+                  <filter id="backShadow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#5d3a2f" flood-opacity="0.26"></feDropShadow>
+                  </filter>
+                </defs>
+                <ellipse class="body-floor" cx="160" cy="665" rx="95" ry="20"></ellipse>
+                <g filter="url(#backShadow)">
+                  <path class="skin limb" fill="url(#backSkin)" d="M99 194 C72 228 58 304 60 386 C60 416 78 430 96 416 C108 406 109 384 108 362 C106 303 116 248 133 209 Z"></path>
+                  <path class="skin limb" fill="url(#backSkin)" d="M221 194 C248 228 262 304 260 386 C260 416 242 430 224 416 C212 406 211 384 212 362 C214 303 204 248 187 209 Z"></path>
+                  <ellipse class="skin" fill="url(#backSkin)" cx="86" cy="424" rx="19" ry="25"></ellipse>
+                  <ellipse class="skin" fill="url(#backSkin)" cx="234" cy="424" rx="19" ry="25"></ellipse>
+                  <path class="skin" fill="url(#backHighlight)" d="M105 171 C122 142 198 142 215 171 C235 225 231 326 213 434 C202 493 191 555 187 623 C182 650 148 650 143 623 L136 458 L128 623 C123 650 89 650 84 623 C80 555 69 493 58 434 C40 326 36 225 55 171 C78 190 104 199 130 202 L160 203 L190 202 C216 199 242 190 265 171 Z"></path>
+                  <path class="skin pelvis" fill="url(#backSkin)" d="M105 408 C126 438 194 438 215 408 C209 461 190 485 160 485 C130 485 111 461 105 408 Z"></path>
+                  <path class="skin" fill="url(#backSkin)" d="M132 116 H188 L196 170 C181 181 139 181 124 170 Z"></path>
+                  <ellipse class="skin" fill="url(#backHighlight)" cx="160" cy="70" rx="47" ry="55"></ellipse>
+                  <path class="line-art" d="M160 118 C156 185 156 302 160 420 M112 188 C130 206 190 206 208 188 M102 252 C128 275 192 275 218 252 M128 330 C143 341 177 341 192 330 M143 458 L139 620 M177 458 L181 620"></path>
+                  <path class="organ-line" d="M122 198 Q136 184 154 197 M166 197 Q184 184 198 198"></path>
+                </g>
+              </svg>
+              <button class="body-label" style="--x: 42%; --y: 10%;" data-body-part="hair pain">Hair</button>
+              <button class="body-label" style="--x: 50%; --y: 4%;" data-body-part="back of head pain">Back of Head</button>
+              <button class="body-label" style="--x: 50%; --y: 22%;" data-body-part="neck pain">Neck</button>
+              <button class="body-label" style="--x: 28%; --y: 26%;" data-body-part="shoulder pain">Shoulder</button>
+              <button class="body-label" style="--x: 18%; --y: 29%;" data-body-part="shoulder blade pain">Shoulder Blade</button>
+              <button class="body-label" style="--x: 80%; --y: 34%;" data-body-part="upper back pain">Upper Back</button>
+              <button class="body-label" style="--x: 21%; --y: 45%;" data-body-part="spine pain">Spine</button>
+              <button class="body-label" style="--x: 79%; --y: 54%;" data-body-part="lower back pain">Lower Back</button>
+              <button class="body-label" style="--x: 14%; --y: 41%;" data-body-part="elbow pain">Elbow</button>
+              <button class="body-label" style="--x: 14%; --y: 57%;" data-body-part="wrist pain">Wrist</button>
+              <button class="body-label" style="--x: 26%; --y: 56%;" data-body-part="hand pain">Hand</button>
+              <button class="body-label" style="--x: 50%; --y: 63%;" data-body-part="hip pain">Hip</button>
+              <button class="body-label" style="--x: 29%; --y: 60%;" data-body-part="buttocks pain">Buttocks</button>
+              <button class="body-label" style="--x: 24%; --y: 74%;" data-body-part="back thigh pain">Back of Thigh</button>
+              <button class="body-label" style="--x: 33%; --y: 72%;" data-body-part="knee pain">Knee</button>
+              <button class="body-label" style="--x: 77%; --y: 84%;" data-body-part="calf pain">Calf</button>
+              <button class="body-label" style="--x: 33%; --y: 91%;" data-body-part="ankle pain">Ankle</button>
+              <button class="body-label" style="--x: 24%; --y: 97%;" data-body-part="heel pain">Heel</button>
+            </div>
+          </div>
+
+          <div class="body-view" data-body-panel="side" role="tabpanel" hidden>
+            <div class="body-diagram">
+              <img class="body-picture" src="assets/anatomy-side.svg" alt="2D side view body parts diagram">
+              <svg viewBox="0 0 320 700" aria-label="Side 3D-style human body diagram">
+                <defs>
+                  <linearGradient id="sideSkin" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ffd9c0"></stop>
+                    <stop offset="50%" stop-color="#eeaa84"></stop>
+                    <stop offset="100%" stop-color="#b86a52"></stop>
+                  </linearGradient>
+                  <radialGradient id="sideHighlight" cx="38%" cy="20%" r="78%">
+                    <stop offset="0%" stop-color="#fff0e4" stop-opacity="0.9"></stop>
+                    <stop offset="60%" stop-color="#efad88" stop-opacity="0.88"></stop>
+                    <stop offset="100%" stop-color="#aa604b" stop-opacity="0.92"></stop>
+                  </radialGradient>
+                  <filter id="sideShadow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#5d3a2f" flood-opacity="0.26"></feDropShadow>
+                  </filter>
+                </defs>
+                <ellipse class="body-floor" cx="166" cy="665" rx="80" ry="20"></ellipse>
+                <g filter="url(#sideShadow)">
+                  <path class="skin" fill="url(#sideHighlight)" d="M143 119 C129 149 126 199 135 252 C146 315 145 370 132 432 C130 484 126 552 119 623 C118 650 153 650 157 623 L163 468 C179 447 187 414 182 372 C176 323 177 279 188 229 C199 176 192 136 169 116 C159 126 150 126 143 119 Z"></path>
+                  <path class="skin limb" fill="url(#sideSkin)" d="M129 185 C102 223 91 264 94 318 C96 343 116 351 128 332 C137 318 132 294 136 270 C140 237 150 212 164 190 Z"></path>
+                  <ellipse class="skin" fill="url(#sideSkin)" cx="116" cy="350" rx="19" ry="25"></ellipse>
+                  <path class="skin" fill="url(#sideSkin)" d="M145 118 H172 L180 169 C169 180 143 180 132 169 Z"></path>
+                  <path class="skin" fill="url(#sideHighlight)" d="M130 67 C130 38 148 18 173 18 C200 18 217 41 211 71 C209 90 193 112 170 115 C147 118 130 97 130 67 Z"></path>
+                  <ellipse class="skin" fill="url(#sideSkin)" cx="210" cy="67" rx="9" ry="16"></ellipse>
+                  <path class="skin" fill="url(#sideSkin)" d="M139 430 C151 454 178 454 188 430 C185 486 185 553 194 625 C196 650 163 653 157 626 L145 472 Z"></path>
+                  <path class="line-art" d="M166 119 C154 185 156 270 169 342 C176 380 171 421 154 466 M142 246 C157 255 174 254 188 245 M144 355 C158 365 174 365 185 355 M160 468 L181 622"></path>
+                  <path class="line-art face" d="M179 59 H180 M187 91 Q176 98 165 91"></path>
+                </g>
+              </svg>
+              <button class="body-label" style="--x: 59%; --y: 9%;" data-body-part="hair pain">Hair</button>
+              <button class="body-label" style="--x: 56%; --y: 12%;" data-body-part="temple pain">Temple</button>
+              <button class="body-label" style="--x: 53%; --y: 12%;" data-body-part="ear pain">Ear</button>
+              <button class="body-label" style="--x: 59%; --y: 14%;" data-body-part="eye pain">Eye</button>
+              <button class="body-label" style="--x: 60%; --y: 16%;" data-body-part="nose problem">Nose</button>
+              <button class="body-label" style="--x: 57%; --y: 19%;" data-body-part="mouth pain">Mouth</button>
+              <button class="body-label" style="--x: 79%; --y: 17%;" data-body-part="jaw pain">Jaw</button>
+              <button class="body-label" style="--x: 56%; --y: 21%;" data-body-part="chin pain">Chin</button>
+              <button class="body-label" style="--x: 36%; --y: 20%;" data-body-part="neck pain">Neck</button>
+              <button class="body-label" style="--x: 22%; --y: 23%;" data-body-part="throat pain">Throat</button>
+              <button class="body-label" style="--x: 34%; --y: 26%;" data-body-part="shoulder pain">Shoulder</button>
+              <button class="body-label" style="--x: 81%; --y: 34%;" data-body-part="chest or rib pain">Chest / Ribs</button>
+              <button class="body-label" style="--x: 42%; --y: 33%;" data-body-part="upper arm pain">Upper Arm</button>
+              <button class="body-label" style="--x: 35%; --y: 40%;" data-body-part="elbow pain">Elbow</button>
+              <button class="body-label" style="--x: 21%; --y: 45%;" data-body-part="side stomach pain">Abdomen</button>
+              <button class="body-label" style="--x: 38%; --y: 46%;" data-body-part="lower back pain">Lower Back</button>
+              <button class="body-label" style="--x: 37%; --y: 50%;" data-body-part="buttocks pain">Buttocks</button>
+              <button class="body-label" style="--x: 80%; --y: 58%;" data-body-part="hip pain">Hip</button>
+              <button class="body-label" style="--x: 17%; --y: 39%;" data-body-part="arm pain">Arm</button>
+              <button class="body-label" style="--x: 56%; --y: 54%;" data-body-part="wrist pain">Wrist</button>
+              <button class="body-label" style="--x: 16%; --y: 55%;" data-body-part="hand pain">Hand</button>
+              <button class="body-label" style="--x: 58%; --y: 61%;" data-body-part="finger pain">Fingers</button>
+              <button class="body-label" style="--x: 24%; --y: 72%;" data-body-part="thigh pain">Thigh</button>
+              <button class="body-label" style="--x: 78%; --y: 81%;" data-body-part="knee pain">Knee</button>
+              <button class="body-label" style="--x: 47%; --y: 79%;" data-body-part="calf pain">Calf</button>
+              <button class="body-label" style="--x: 24%; --y: 92%;" data-body-part="ankle pain">Ankle</button>
+              <button class="body-label" style="--x: 77%; --y: 97%;" data-body-part="foot pain">Foot</button>
+              <button class="body-label" style="--x: 61%; --y: 96%;" data-body-part="toe pain">Toes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section agent-results-section" aria-labelledby="results-title">
+      <div class="section-inner result-layout">
+        <section class="result-panel" aria-labelledby="results-title">
+          <div class="result-head">
+            <div>
+              <p class="eyebrow">AI assessment</p>
+              <h2 id="results-title">Patient result</h2>
+            </div>
+            <span id="riskBadge" class="risk-badge neutral">Waiting</span>
+          </div>
+
+          <div id="agentTranscript" class="agent-transcript" aria-live="polite">
+            <div class="message bot">Tell me the patient's age, symptoms, duration, and location. I will calculate the age group and show possible disease categories, warning signs, advice, and doctor options.</div>
+          </div>
+
+          <div id="conditionCards" class="condition-grid" aria-label="Possible health conditions"></div>
+        </section>
+
+        <aside class="doctor-panel" aria-labelledby="doctor-title">
+          <p class="eyebrow">Care connection</p>
+          <h2 id="doctor-title">Suggested doctor contact</h2>
+          <div id="doctorList" class="doctor-list">
+            <article>
+              <span>Primary care</span>
+              <h3>Community Health Centre</h3>
+              <p>Use this first for general symptoms, fever, vaccination questions, and referral guidance.</p>
+              <a href="tel:+919876543210">+91 98765 43210</a>
+            </article>
+          </div>
+          <a id="mapSearch" class="button primary doctor-map" href="https://www.google.com/maps/search/doctor+near+me" target="_blank" rel="noreferrer">Search nearby doctors</a>
+          <p class="doctor-note">
+            Demo contacts are placeholders. In deployment, connect this panel to a government facility directory, verified provider database, or emergency helpline.
+          </p>
+          <p class="source-note">
+            Safety references:
+            <a href="https://www.cdc.gov/dengue/signs-symptoms/index.html" target="_blank" rel="noreferrer">CDC dengue warning signs</a>
+            and
+            <a href="https://www.cdc.gov/dengue/treatment/index.html" target="_blank" rel="noreferrer">CDC dengue care guidance</a>.
+          </p>
+        </aside>
+      </div>
+
+      <section class="patient-report" id="patientReport" aria-labelledby="report-title">
+        <div class="report-head">
+          <div>
+            <p class="eyebrow">Download section</p>
+            <h2 id="report-title">Patient Reports</h2>
+          </div>
+          <div class="report-actions">
+            <button class="button ghost" id="downloadDigitalReport" type="button">Download digital report</button>
+            <button class="button primary" id="downloadReport" type="button">Download A4 report</button>
+            <button class="button ghost" id="printReport" type="button">Print / Save PDF</button>
+          </div>
+        </div>
+        <p class="report-warning">This is an AI-generated awareness and referral note, not a medicine prescription. A qualified doctor must confirm diagnosis and treatment.</p>
+
+        <div class="report-view-switch" role="tablist" aria-label="Report type">
+          <button class="active" type="button" role="tab" aria-selected="true" data-report-tab="digital">Digital report</button>
+          <button type="button" role="tab" aria-selected="false" data-report-tab="physical">Physical A4 report</button>
+        </div>
+
+        <div class="report-panel active" id="digitalReportPanel" data-report-panel="digital" role="tabpanel">
+          <div class="digital-report-card">
+            <h3>AI Patient Report</h3>
+            <p>Point-wise report for quick mobile viewing and sharing with a health worker.</p>
+            <ul class="report-list" id="reportList">
+              <li><strong>Status:</strong> Complete symptom analysis to generate the patient report.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="report-panel" id="physicalReportPanel" data-report-panel="physical" role="tabpanel" hidden>
+          <div class="a4-wrap">
+          <article class="a4-sheet" id="reportSheet" aria-label="A4 patient report preview">
+            <header class="sheet-header">
+              <p class="sheet-brand">AI HealthBot</p>
+              <h3>AI Patient Report</h3>
+              <p class="sheet-about">
+                About us: AI HealthBot is an AI-driven public health chatbot for disease awareness, preventive care education, vaccination reminders, and safe doctor referral support.
+              </p>
+            </header>
+
+            <div class="sheet-rule strong"></div>
+            <div class="sheet-meta">
+              <div>
+                <span>Report No.</span>
+                <strong id="sheetReportNo">AIH-0001</strong>
+              </div>
+              <div>
+                <span>Report Date</span>
+                <strong id="sheetReportDate">Not generated</strong>
+              </div>
+            </div>
+            <div class="sheet-rule soft"></div>
+
+            <section class="sheet-section">
+              <h4>Patient Information</h4>
+              <div class="sheet-info-grid">
+                <div>
+                  <span>Name</span>
+                  <strong id="sheetPatientName">Not provided</strong>
+                </div>
+                <div>
+                  <span>Patient Contact Number</span>
+                  <strong id="sheetPatientPhone">Not provided</strong>
+                </div>
+                <div>
+                  <span>Age</span>
+                  <strong id="sheetPatientAge">Not provided</strong>
+                </div>
+                <div>
+                  <span>Age Group</span>
+                  <strong id="sheetAgeGroup">Not provided</strong>
+                </div>
+                <div>
+                  <span>Symptom Duration</span>
+                  <strong id="sheetDuration">Not provided</strong>
+                </div>
+                <div>
+                  <span>Location</span>
+                  <strong id="sheetLocation">Not provided</strong>
+                </div>
+                <div>
+                  <span>Risk Level</span>
+                  <strong id="sheetRisk">Waiting</strong>
+                </div>
+              </div>
+            </section>
+
+            <section class="sheet-section">
+              <h4>Symptom And AI Assessment</h4>
+              <table class="sheet-table">
+                <tbody>
+                  <tr>
+                    <th>Symptoms</th>
+                    <td id="sheetSymptoms">Complete symptom analysis to generate the report.</td>
+                  </tr>
+                  <tr>
+                    <th>Possible Category</th>
+                    <td id="sheetCondition">Waiting</td>
+                  </tr>
+                  <tr>
+                    <th>Advice</th>
+                    <td id="sheetAdvice">Analyze symptoms to receive prevention and care guidance.</td>
+                  </tr>
+                  <tr>
+                    <th>Pain Locations</th>
+                    <td id="sheetPainLocations">No anatomy point selected.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section class="sheet-section">
+              <h4>Anatomy Pain Marking</h4>
+              <div class="sheet-pain-maps" id="sheetPainMaps">
+                <p>No pain location selected from the body map.</p>
+              </div>
+            </section>
+
+            <section class="sheet-section">
+              <h4>Recommended Care Contact</h4>
+              <div class="sheet-info-grid">
+                <div>
+                  <span>Doctor / Facility</span>
+                  <strong id="sheetDoctorName">Community Health Centre</strong>
+                </div>
+                <div>
+                  <span>Doctor Type</span>
+                  <strong id="sheetDoctorType">Primary care</strong>
+                </div>
+                <div>
+                  <span>Contact Number</span>
+                  <strong id="sheetDoctorContact">+91 98765 43210</strong>
+                </div>
+                <div>
+                  <span>Generated On</span>
+                  <strong id="sheetGeneratedOn">Not generated</strong>
+                </div>
+              </div>
+            </section>
+
+            <footer class="sheet-footer">
+              <p>AI-generated awareness note only. Diagnosis, medicines, and treatment must be confirmed by a qualified doctor.</p>
+              <span id="sheetFooterDate">AI HealthBot</span>
+            </footer>
+          </article>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="section agent-architecture" aria-labelledby="agent-architecture-title">
+      <div class="section-inner architecture-grid">
+        <div>
+          <p class="eyebrow">Integration design</p>
+          <h2 id="agent-architecture-title">How the real AI agent can be integrated.</h2>
+          <p class="section-copy">
+            The current page runs a safe local prototype in JavaScript. A production build can replace the local rule engine with Rasa, Dialogflow, or a secure clinical NLP service.
+          </p>
+        </div>
+        <div class="stack-board">
+          <article>
+            <h3>Symptom NLP</h3>
+            <p>Extract symptoms, duration, age group, location, severity, and danger signs from patient messages.</p>
+          </article>
+          <article>
+            <h3>Clinical guardrails</h3>
+            <p>Use approved content, medical review, emergency escalation rules, and confidence thresholds.</p>
+          </article>
+          <article>
+            <h3>Doctor matching</h3>
+            <p>Match likely care need to general physician, pediatrician, emergency care, internal medicine, or specialist.</p>
+          </article>
+          <article>
+            <h3>Facility APIs</h3>
+            <p>Connect official health center directories, outbreak feeds, telemedicine slots, and WhatsApp/SMS APIs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="section-inner footer-inner">
+      <p>AI Patient Agent for Disease Awareness</p>
+      <a href="index.html">Back to home</a>
+    </div>
+  </footer>
+
+  <script src="ai-agent.js"></script>
+</body>
+</html>
