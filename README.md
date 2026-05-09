@@ -1,84 +1,254 @@
 <div align="center">
 
-# 🩺 AI-Driven Public Health Chatbot for Disease Awareness
+# 🤖🌍 𝘼𝙄-𝘿𝙍𝙄𝙑𝙀𝙉 𝙋𝙐𝘽𝙇𝙄𝘾 𝙃𝙀𝘼𝙇𝙏𝙃 𝘾𝙃𝘼𝙏𝘽𝙊𝙏 🌍🤖
 
-### 🌍 Empowering Communities Through AI-Powered Healthcare Awareness
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=260&color=0:0f172a,50:2563eb,100:06b6d4&text=AI%20PUBLIC%20HEALTH%20CHATBOT&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=40"/>
 
-<img src="https://img.shields.io/badge/AI-Powered-blue?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Healthcare-Technology-green?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Open%20Source-Project-orange?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Made%20With-Love-red?style=for-the-badge" />
+### 🩺 AI-Powered Disease Awareness & Public Healthcare Assistant
+
+<br>
+
+<img src="https://img.shields.io/badge/AI-Powered-2563eb?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Public-Health-06b6d4?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Healthcare-Awareness-16a34a?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/NLP-Chatbot-ef4444?style=for-the-badge"/>
+
+<br><br>
+
+<img src="https://readme-typing-svg.herokuapp.com?font=Poppins&size=28&duration=3000&color=36BCF7&center=true&vCenter=true&width=950&lines=AI-Powered+Healthcare+Awareness+🩺;Smart+Disease+Awareness+System+🤖;Public+Health+Information+Assistant+🌍;NLP-Based+Healthcare+Chatbot+💡"/>
 
 </div>
 
 ---
 
-## 📌 Overview
+# 📌 About The Project
 
-The **AI-Driven Public Health Chatbot for Disease Awareness** is an intelligent healthcare assistant designed to provide:
+> **AI-Driven Public Health Chatbot for Disease Awareness** is an intelligent healthcare assistant designed to spread disease awareness and provide basic healthcare guidance using Artificial Intelligence and Natural Language Processing (NLP).
 
-- 🧠 Disease awareness & prevention guidance
-- 💬 Real-time conversational healthcare support
-- 🌐 Multilingual accessibility
-- 📢 Public health education
-- 🚑 Early symptom awareness
-- 📊 Health information accessibility for rural & urban communities
+The chatbot helps users understand:
 
-This project aims to bridge the healthcare information gap by using Artificial Intelligence and Natural Language Processing (NLP) to deliver reliable, fast, and user-friendly medical awareness support. Inspired by modern healthcare AI systems and multilingual public health chatbot architectures. :contentReference[oaicite:0]{index=0}
+- 🩺 Disease symptoms
+- 💉 Prevention methods
+- 🌍 Public health awareness
+- 📢 Healthcare education
+- 🤖 AI-based healthcare interaction
+
+This project aims to make healthcare information accessible, interactive, and user-friendly for everyone.
 
 ---
 
 # ✨ Features
 
-## 🤖 AI Chatbot Assistance
-- Intelligent healthcare conversations
-- Human-like interaction
-- Quick disease-related responses
+<div align="center">
 
-## 🌍 Multilingual Support
-- Supports multiple languages
-- Designed for wider accessibility
+| 🚀 Feature | 💡 Description |
+|---|---|
+| 🤖 AI Chatbot | Smart healthcare conversations |
+| 🩺 Disease Awareness | Information about diseases & symptoms |
+| 💉 Prevention Guidance | Health & safety recommendations |
+| 🌍 Public Health Support | Spread healthcare awareness |
+| 🗣️ NLP Integration | Human-like communication |
+| 📱 Responsive Design | Mobile & desktop friendly |
+| 🔍 Instant Responses | Fast chatbot interaction |
+| 🌐 Multi-Language Ready | Expandable language support |
 
-## 🩺 Disease Awareness
-- Symptoms information
-- Preventive measures
-- Basic healthcare guidance
-
-## 📢 Public Health Alerts
-- Vaccination awareness
-- Health campaign notifications
-- Emergency health updates
-
-## 📱 User-Friendly Interface
-- Simple & responsive design
-- Mobile-friendly experience
-- Easy navigation
+</div>
 
 ---
 
 # 🛠️ Tech Stack
 
-| Technology | Usage |
-|------------|-------|
-| Python 🐍 | Backend Development |
-| Flask / Django 🌐 | Web Framework |
-| HTML/CSS/JS 🎨 | Frontend UI |
-| NLP 🤖 | Text Understanding |
-| AI/ML 📊 | Smart Responses |
-| APIs 🔗 | Health Data Integration |
+<div align="center">
+
+| Technology | Purpose |
+|---|---|
+| 🐍 Python | Backend Development |
+| ⚡ Flask / Django | Web Framework |
+| 🤖 NLP | Language Processing |
+| 🧠 AI/ML | Smart Response Generation |
+| 🎨 HTML/CSS | Frontend Design |
+| 💻 JavaScript | Interactivity |
+| 🗄️ Database | Health Data Storage |
+
+</div>
 
 ---
 
 # 📂 Project Structure
 
 ```bash
-AI-Driven-Public-Health-Chatbot/
+Al-Driven-Public-Health-Chatbot-for-Disease-Awareness/
 │
 ├── static/
+│   ├── css/
+│   ├── js/
+│   └── images/
+│
 ├── templates/
+│
 ├── chatbot/
-├── dataset/
 ├── models/
+├── dataset/
+│
 ├── app.py
 ├── requirements.txt
-└── README.md﻿# Al-Driven-Public-Health-Chatbot-for-Disease-Awareness
+└── README.md
+```
+
+---
+
+# ⚙️ Installation
+
+## 🔽 Clone Repository
+
+```bash
+git clone https://github.com/Abhijit-Bhattacharjee/Al-Driven-Public-Health-Chatbot-for-Disease-Awareness.git
+```
+
+## 📂 Open Project Folder
+
+```bash
+cd Al-Driven-Public-Health-Chatbot-for-Disease-Awareness
+```
+
+## 📦 Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+## ▶️ Run Application
+
+```bash
+python app.py
+```
+
+---
+
+# 🌍 Local Preview
+
+```bash
+http://localhost:5000
+```
+
+---
+
+# 🔄 System Workflow
+
+```mermaid
+graph TD;
+
+A[User Input] --> B[AI Chatbot]
+B --> C[NLP Processing]
+C --> D[Disease Awareness Engine]
+D --> E[Generate Smart Response]
+E --> F[Healthcare Guidance]
+```
+
+---
+
+# 🎯 Objectives
+
+- 🌍 Spread public health awareness
+- 🩺 Provide basic healthcare guidance
+- 📢 Reduce healthcare misinformation
+- 🤖 Improve AI-based healthcare accessibility
+- 💡 Create an interactive health assistant
+- 📱 Make healthcare support easily accessible
+
+---
+
+# 🌍 SDG Alignment
+
+<div align="center">
+
+| SDG Goal | Contribution |
+|---|---|
+| 🩺 SDG 3 | Good Health & Well-Being |
+| 🌍 SDG 10 | Reduced Inequalities |
+| 🏗️ SDG 9 | Innovation & Infrastructure |
+
+</div>
+
+---
+
+# 📸 Preview
+
+<div align="center">
+
+<img width="85%" src="https://user-images.githubusercontent.com/74038190/212744275-2d9f5d5e-4b11-45e7-bc93-6c9bcbf6d163.gif"/>
+
+</div>
+
+---
+
+# 🚀 Future Enhancements
+
+- 🎤 Voice-Based Chatbot
+- 🌐 Multi-Language Support
+- 🧬 AI Disease Prediction
+- 📱 WhatsApp Integration
+- ☁️ Cloud Deployment
+- 📊 Healthcare Analytics Dashboard
+- 🏥 Nearby Hospital Suggestions
+
+---
+
+# 🔐 Security & Privacy
+
+```diff
++ Secure User Interaction
++ Protected Health Data
++ Encrypted Communication
++ Safe Information Handling
+```
+
+---
+
+# 👨‍💻 Developer
+
+<div align="center">
+
+## 🚀 Abhijit Bhattacharjee
+
+### 🌟 AI Developer | Healthcare Technology Enthusiast
+
+GitHub: https://github.com/Abhijit-Bhattacharjee
+
+</div>
+
+---
+
+# 🤝 Contribution
+
+Contributions are always welcome ❤️
+
+```bash
+1. Fork Repository
+2. Create Feature Branch
+3. Commit Changes
+4. Push To GitHub
+5. Open Pull Request
+```
+
+---
+
+# ⭐ Support
+
+If you like this project:
+
+🌟 Star this repository  
+🍴 Fork this project  
+📢 Share with others  
+
+---
+
+<div align="center">
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=150&section=footer&color=0:06b6d4,50:2563eb,100:0f172a"/>
+
+# 💙 AI For Better Public Healthcare
+
+### ✨ Building Smarter Healthcare Awareness Through Technology ✨
+
+</div>
